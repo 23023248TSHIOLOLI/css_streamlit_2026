@@ -98,8 +98,8 @@ elif menu == "STEM Data Explorer":
         ]
         st.write(f"Filtered Results for Energy Range {energy_filter}:")
         st.dataframe(filtered_physics)
-elif data_option == "Mathematics & Applied":
-    st.write("### Mathematics & Applied Data")
+elif data_option == "Maths":
+    st.write("### Maths Data")
     st.dataframe(maths_data)
 
     # Filter by difficulty
@@ -151,5 +151,6 @@ elif menu == "Contact":
     st.header("Contact Information")
     email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
 
