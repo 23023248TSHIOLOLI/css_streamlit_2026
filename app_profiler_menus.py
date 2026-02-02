@@ -16,14 +16,8 @@ st.set_page_config(page_title="Researcher Profile and STEM Data Explorer", layou
 @@ -16,7 +21,12 @@
 # Dummy STEM data
 physics_data = pd.DataFrame({
-    "Experiment": [
-    "Particle Collision Analysis","Quantum Entanglement Test","Superconductivity Study","Nuclear Fusion Simulation","Gravitational Wave Detection"],
-        "Particle Collision Analysis",
-        "Quantum Entanglement Test",
-        "Superconductivity Study",
-        "Nuclear Fusion Simulation",
-        "Gravitational Wave Detection"
-    ],
+    "Experiment": ["Particle Collision Analysis","Quantum Entanglement Test","Superconductivity Study","Nuclear Fusion Simulation","Gravitational Wave Detection"],
+      
     "Energy (MeV)": [4.2, 1.5, 2.9, 3.4, 7.1],
     "Date": pd.date_range(start="2023-01-01", periods=5),
 })
@@ -170,3 +164,4 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
