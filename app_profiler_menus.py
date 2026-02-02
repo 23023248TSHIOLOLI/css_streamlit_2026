@@ -1,4 +1,4 @@
-@@ -14,18 +14,19 @@
+
 
 # Necessary imports
 import streamlit as st
@@ -162,5 +162,6 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
