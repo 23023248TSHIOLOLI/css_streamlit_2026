@@ -18,7 +18,19 @@ menu = st.sidebar.radio(
     ["Researcher Profile", "Publications", "STEM Data Explorer", "Contact"],
 )
 
-# Dummy STEM data
+# Function to load an image from URL
+def load_image(url):
+    response = requests.get(url)
+    return Image.open(BytesIO(response.content))
+
+# Example image URL (replace with your own image if needed)
+image_url = "https://raw.githubusercontent.com/23023248TSHIOLOLI/css_streamlit_2026/main/jay-antol-Xbf_4e7YDII-unsplash.jpg"
+image = load_image(image_url)
+
+# Display image in Streamlit
+st.image(image, caption="Researcher or Featured Image", use_column_width=True)
+
+# Dummy STEM Data
 physics_data = pd.DataFrame({
     "Experiment": [
         "Particle Collision Analysis",
@@ -33,49 +45,42 @@ physics_data = pd.DataFrame({
 
 astronomy_data = pd.DataFrame({
     "Celestial Object": ["Mars", "Venus", "Jupiter", "Saturn", "Moon"],
-    "Brightness (Magnitude)": [-3.0, -3.6, -1.4, 0.2, -11.7],
-    "Observation Date": pd.date_range(start="2023-04-12", periods=5),
+    "Brightness (Magnitude)": [-3.0, -3.6, -1.9, 0.5, -12.7],
+    "Observation Date": pd.date_range(start="2023-06-01", periods=5),
 })
 
-# Function to load image from GitHub
-def load_image(url):
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-        return Image.open(BytesIO(response.content))
-    except requests.exceptions.RequestException as e:
-        st.error(f"Failed to load image: {e}")
-        return None
-
-# Replace these with your GitHub repo details and raw image link
-image_url = "https://raw.githubusercontent.com/<username>/<repository>/main/image.png"
-
-# Display sections based on menu selection
+# Page Content based on Menu Selection
 if menu == "Researcher Profile":
-    st.title("Researcher Profile")
-    st.markdown("Welcome to the Researcher Profile section.")
-    # Load and display GitHub image
-    profile_image = load_image(image_url)
-    if profile_image:
-        st.image(profile_image, caption="Profile Image from GitHub", use_column_width=True)
+    st.header("Researcher Profile")
+    st.write("This section can include personal information, biography, and research interests.")
 
 elif menu == "Publications":
-    st.title("Publications")
-    st.table(pd.DataFrame({
-        "Title": ["Paper A", "Paper B", "Paper C"],
-        "Year": [2021, 2022, 2023]
-    }))
+    st.header("Publications")
+    st.write("List your recent publications or journals in this section.")
 
 elif menu == "STEM Data Explorer":
-    st.title("Physics Experiments Data")
-    st.dataframe(physics_data)
-    st.title("Astronomy Observations Data")
-    st.dataframe(astronomy_data)
+    st.header("STEM Data Explorer")
+    
+    # Toggle Tabs for Physics and Astronomy
+    tab1, tab2 = st.tabs(["Physics Data", "Astronomy Data"])
+
+    with tab1:
+        st.subheader("Physics Experiments")
+        st.dataframe(physics_data)
+        st.bar_chart(physics_data.set_index("Experiment")["Energy (MeV)"])
+
+    with tab2:
+        st.subheader("Astronomy Observations")
+        st.dataframe(astronomy_data)
+        st.line_chart(astronomy_data.set_index("Celestial Object")["Brightness (Magnitude)"])
 
 elif menu == "Contact":
-    st.title("Contact")
-    st.markdown("You can reach me at [email@example.com](mailto:email@example.com)")
+    st.header("Contact")
+    st.write("Include a form or contact details for inquiries here.")
 
-# Optional footer
-st.markdown("---")
-st.markdown("App built with Streamlit")
+# Footer
+st.write("---")
+st.write("Developed with ❤️ using Streamlit, Python, and Pillow (PIL).")
+
+# Optional Usage Instructions
+st.info("You can replace the image URL with your own or add more images as needed. Adjust data for real STEM datasets.")
