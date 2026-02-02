@@ -49,10 +49,12 @@ if menu == "Researcher Profile":
     st.write(f"**Field of Research:** {field}")
     st.write(f"**Institution:** {institution}")
     
-    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
     if uploaded_file is not None:
-    image = Image.open(jay-antol-Xbf_4e7YDII-unsplash.jpg)
-    st.image(image, caption="jay-antol-Xbf_4e7YDII-unsplash", use_container_width=True)
+    image = Image.open(uploaded_file)
+    else:
+    image = Image.open("jay-antol-Xbf_4e7YDII-unsplash.jpg")
+
+    st.image(image, caption="Image Preview", use_container_width=True)
 
 
 
@@ -138,6 +140,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
