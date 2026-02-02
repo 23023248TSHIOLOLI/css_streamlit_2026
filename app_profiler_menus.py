@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 # Set page title
 st.set_page_config(page_title="Researcher Profile and STEM Data Explorer", layout="wide")
@@ -48,9 +49,10 @@ if menu == "Researcher Profile":
     st.write(f"**Field of Research:** {field}")
     st.write(f"**Institution:** {institution}")
     
-    st.image(
-        "https://unsplash.com/photos/body-of-water-during-sunset-Xbf_4e7YDII",
-    caption="Sunset Over Water (Unsplash)"
+    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+    if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption="jay-antol-Xbf_4e7YDII-unsplash", use_container_width=True)
 
 )
 
@@ -136,3 +138,4 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
