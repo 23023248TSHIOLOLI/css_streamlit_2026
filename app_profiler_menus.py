@@ -85,7 +85,7 @@ elif menu == "STEM Data Explorer":
     # Tabbed view for STEM data
     data_option = st.sidebar.selectbox(
         "Choose a dataset to explore", 
-        ["Physics Experiments", "Maths Observations"]
+        ["Physics Experiments", "Mathematics & Applied"]
     )
 
     if data_option == "Physics Experiments":
@@ -98,8 +98,8 @@ elif menu == "STEM Data Explorer":
         ]
         st.write(f"Filtered Results for Energy Range {energy_filter}:")
         st.dataframe(filtered_physics)
-elif data_option == "Maths":
-    st.write("### Maths Data")
+elif data_option == "Mathematics & Applied":
+    st.write("### Mathematics & Applied Data")
     st.dataframe(maths_data)
 
     # Filter by difficulty
@@ -151,6 +151,7 @@ elif menu == "Contact":
     st.header("Contact Information")
     email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
 
 
