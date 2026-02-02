@@ -51,7 +51,7 @@ if menu == "Researcher Profile":
     
     uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
     if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    image = Image.open(jay-antol-Xbf_4e7YDII-unsplash.jpg)
     st.image(image, caption="jay-antol-Xbf_4e7YDII-unsplash", use_container_width=True)
 
 
@@ -138,5 +138,6 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
