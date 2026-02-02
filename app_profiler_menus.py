@@ -36,7 +36,7 @@ climate_data = pd.DataFrame({
     "Humidity (%)": [65, 70, 55, 80, 50],
 })
  # Sections based on menu selection
-if menu == "Researcher Profile":
+if menu =="Researcher Profile":
     st.title("Researcher Profile")  
     st.sidebar.header("Profile Options")
 
@@ -106,6 +106,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
