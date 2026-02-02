@@ -54,7 +54,7 @@ if menu == "Researcher Profile":
     image = Image.open(uploaded_file)
     st.image(image, caption="jay-antol-Xbf_4e7YDII-unsplash", use_container_width=True)
 
-)
+
 
 elif menu == "Publications":
     st.title("Publications")
@@ -138,4 +138,5 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
