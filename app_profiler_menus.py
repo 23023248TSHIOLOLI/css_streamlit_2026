@@ -11,7 +11,7 @@ st.set_page_config(page_title="Researcher Profile and STEM Data Explorer", layou
 
 # Sidebar Menu
 
- Dummy STEM data
+# Dummy STEM data
 physics_data = pd.DataFrame({
     "Experiment": ["Alpha Decay", "Beta Decay", "Gamma Ray Analysis", "Quark Study", "Higgs Boson"],
     "Experiment": [
@@ -111,3 +111,4 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
