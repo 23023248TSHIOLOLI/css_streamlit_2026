@@ -21,9 +21,7 @@ physics_data = pd.DataFrame({
     "Energy (MeV)": [4.2, 1.5, 2.9, 3.4, 7.1],
     "Date": pd.date_range(start="2023-01-01", periods=5),
 })
-@@ -27,120 +37,45 @@
-    "Observation Date": pd.date_range(start="2023-04-12", periods=5),
-})
+
 
 climate_data = pd.DataFrame({
     "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
@@ -164,4 +162,5 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
