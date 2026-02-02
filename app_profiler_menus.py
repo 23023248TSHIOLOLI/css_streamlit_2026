@@ -4,9 +4,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from PIL import Image
-import requests
-from io import BytesIO
 
 # Set page title
 # Set up Streamlit page
@@ -149,6 +146,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
