@@ -17,16 +17,15 @@ physics_data = pd.DataFrame({
     "Experiment": [
     "Particle Collision Analysis","Quantum Entanglement Test","Superconductivity Study","Nuclear Fusion Simulation","Gravitational Wave Detection"],
     "Energy (MeV)": [4.2, 1.5, 2.9, 3.4, 7.1],
-    "Date": pd.date_range(start="2024-01-01", periods=5),
     "Date": pd.date_range(start="2023-01-01", periods=5),
 })
 
-astronomy_data = pd.DataFrame({
-    "Celestial Object": ["Mars", "Venus", "Jupiter", "Saturn", "Moon"],
-    "Brightness (Magnitude)": [-2.0, -4.6, -1.8, 0.2, -12.7],
-    "Observation Date": pd.date_range(start="2024-01-01", periods=5),
-    "Brightness (Magnitude)": [-3.0, -3.6, -1.4, 0.2, -11.7],
-    "Observation Date": pd.date_range(start="2023-04-12", periods=5),
+maths_data = pd.DataFrame({
+    "Topic": [ "Linear Algebra","Differential Equations", "Probability Theory","Numerical Methods", "real analysis" ],
+    "Application Area": ["Machine Learning", "Physics Modeling", "Risk Analysis","Engineering Simulation", "Operations Research"],
+    "Difficulty Level": [3, 4, 2, 5, 5],
+    "Computation Time (s)": [0.5, 1.2, 0.3, 2.5, 1.8],
+    "Date": pd.date_range(start="2023-01-19", periods=5),
 })
 
 
@@ -106,6 +105,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
