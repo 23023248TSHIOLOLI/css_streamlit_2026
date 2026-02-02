@@ -28,12 +28,6 @@ maths_data = pd.DataFrame({
 })
 
 
-weather_data = pd.DataFrame({
-    "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
-    "Temperature (°C)": [25, 10, -3, 15, 30],
-    "Humidity (%)": [65, 70, 55, 80, 50],
-    "Recorded Date": pd.date_range(start="2024-01-01", periods=5),
-})
 
 # Sections based on menu selection
 if menu == "Researcher Profile":
@@ -91,7 +85,7 @@ elif menu == "STEM Data Explorer":
     # Tabbed view for STEM data
     data_option = st.sidebar.selectbox(
         "Choose a dataset to explore", 
-        ["Physics Experiments", "Maths Observations", "Weather Data"]
+        ["Physics Experiments", "Maths Observations"]
     )
 
     if data_option == "Physics Experiments":
@@ -148,18 +142,7 @@ elif data_option == "Mathematics & Applied":
 
     
 
-    elif data_option == "Weather Data":
-        st.write("### Weather Data")
-        st.dataframe(weather_data)
-        # Add widgets to filter by temperature and humidity
-        temp_filter = st.slider("Filter by Temperature (°C)", -9.0, 34.0, (-10.0, 40.0))
-        humidity_filter = st.slider("Filter by Humidity (%)", 0, 100, (0, 100))
-        filtered_weather = weather_data[
-            weather_data["Temperature (°C)"].between(temp_filter[0], temp_filter[1]) &
-            weather_data["Humidity (%)"].between(humidity_filter[0], humidity_filter[1])
-        ]
-        st.write(f"Filtered Results for Temperature {temp_filter} and Humidity {humidity_filter}:")
-        st.dataframe(filtered_weather)
+
         
         
 
@@ -168,4 +151,5 @@ elif menu == "Contact":
     st.header("Contact Information")
     email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
