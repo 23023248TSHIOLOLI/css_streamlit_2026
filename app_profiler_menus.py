@@ -19,12 +19,14 @@ physics_data = pd.DataFrame({
     "Energy (MeV)": [4.2, 1.5, 2.9, 3.4, 7.1],
     "Date": pd.date_range(start="2024-01-01", periods=5),
 })
-
-astronomy_data = pd.DataFrame({
-    "Celestial Object": ["Mars", "Venus", "Jupiter", "Saturn", "Moon"],
-    "Brightness (Magnitude)": [-2.0, -4.6, -1.8, 0.2, -12.7],
-    "Observation Date": pd.date_range(start="2024-01-01", periods=5),
+maths_data = pd.DataFrame({
+    "Topic": ["Linear Algebra","Differential Equations","Probability Theory","Numerical Methods","Optimization"],
+    "Application Area": ["Machine Learning","Physics Modeling","Risk Analysis","Engineering Simulation","Operations Research"  ],
+    "Difficulty Level": [3, 4, 2, 5, 8],
+    "Computation Time (s)": [0.5, 1.2, 0.3, 2.5, 1.8],
+    "Date": pd.date_range(start="2024-01-01", periods=5),
 })
+
 
 weather_data = pd.DataFrame({
     "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
@@ -39,9 +41,9 @@ if menu == "Researcher Profile":
     st.sidebar.header("Profile Options")
 
     # Collect basic information
-    name = "Dr. Jane Doe"
-    field = "Astrophysics"
-    institution = "University of Science"
+    name = "TSHIOLOLI TSHEDZA"
+    field = "MATHS AND APPLIED MATHS"
+    institution = "Universisty of venda "
 
     # Display basic profile information
     st.write(f"**Name:** {name}")
@@ -103,20 +105,52 @@ elif menu == "STEM Data Explorer":
         st.write(f"Filtered Results for Energy Range {energy_filter}:")
         st.dataframe(filtered_physics)
 
-    elif data_option == "Astronomy Observations":
-        st.write("### Astronomy Observation Data")
-        st.dataframe(astronomy_data)
-        # Add widget to filter by Brightness
-        brightness_filter = st.slider("Filter by Brightness (Magnitude)", -15.0, 5.0, (-15.0, 5.0))
-        filtered_astronomy = astronomy_data[
-            astronomy_data["Brightness (Magnitude)"].between(brightness_filter[0], brightness_filter[1])
-        ]
-        st.write(f"Filtered Results for Brightness Range {brightness_filter}:")
-        st.dataframe(filtered_astronomy)
+elif data_option == "Mathematics & Applied":
+    st.write("### Mathematics & Applied Data")
+    st.dataframe(maths_data)
 
-    elif data_option == "Weather Data":
-        st.write("### Weather Data")
-        st.dataframe(weather_data)
+    # Filter by difficulty
+    difficulty_filter = st.slider(
+        "Filter by Difficulty Level",
+        min_value=1,
+        max_value=5,
+        value=(1, 5)
+    )
+
+    # Filter by computation time
+    time_filter = st.slider(
+        "Filter by Computation Time (seconds)",
+        min_value=0.0,
+        max_value=5.0,
+        value=(0.0, 5.0)
+    )
+
+    filtered_maths = maths_data[
+        maths_data["Difficulty Level"].between(difficulty_filter[0], difficulty_filter[1]) &
+        maths_data["Computation Time (s)"].between(time_filter[0], time_filter[1])
+    ]
+
+    if filtered_maths.empty:
+        st.info("No results match the selected filters.")
+    else:
+        st.write(
+            f"Filtered Results for Difficulty {difficulty_filter} "
+            f"and Computation Time {time_filter}:"
+        )
+        st.dataframe(filtered_maths)
+
+    # Visualization
+    st.subheader("Difficulty vs Computation Time")
+    st.scatter_chart(
+        filtered_maths,
+        x="Difficulty Level",
+        y="Computation Time (s)"
+    )
+
+
+    elif data_option == "climate Data":
+        st.write("### climate Data")
+        st.dataframe(climate_data)
         # Add widgets to filter by temperature and humidity
         temp_filter = st.slider("Filter by Temperature (°C)", -10.0, 40.0, (-10.0, 40.0))
         humidity_filter = st.slider("Filter by Humidity (%)", 0, 100, (0, 100))
@@ -125,13 +159,14 @@ elif menu == "STEM Data Explorer":
             weather_data["Humidity (%)"].between(humidity_filter[0], humidity_filter[1])
         ]
         st.write(f"Filtered Results for Temperature {temp_filter} and Humidity {humidity_filter}:")
-        st.dataframe(filtered_weather)
+        st.dataframe(filtered_climate)
         
         
 
 elif menu == "Contact":
     # Add a contact section
     st.header("Contact Information")
-    email = "jane.doe@example.com"
+    email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
