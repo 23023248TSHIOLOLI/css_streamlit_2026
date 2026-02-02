@@ -148,8 +148,8 @@ elif data_option == "Mathematics & Applied":
     )
 
 
-    elif data_option == "weather Data":
-        st.write("### weather Data")
+     elif data_option == "Weather Data":
+        st.write("### Weather Data")
         st.dataframe(weather_data)
         # Add widgets to filter by temperature and humidity
         temp_filter = st.slider("Filter by Temperature (°C)", -10.0, 40.0, (-10.0, 40.0))
@@ -161,13 +161,13 @@ elif data_option == "Mathematics & Applied":
         st.write(f"Filtered Results for Temperature {temp_filter} and Humidity {humidity_filter}:")
         st.dataframe(filtered_weather)
         
-        
 
 elif menu == "Contact":
     # Add a contact section
     st.header("Contact Information")
     email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
 
 
