@@ -60,7 +60,7 @@ elif menu == "Publications":
     # Tabbed view for STEM data
     data_option = st.sidebar.selectbox(
         "Choose a dataset to explore", 
-      ]
+      
         ["Physics Experiments", "Astronomy Observations", "climate change Data"]
     )
 
@@ -103,5 +103,6 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
