@@ -13,7 +13,7 @@ from io import BytesIO
 st.set_page_config(page_title="Researcher Profile and STEM Data Explorer", layout="wide")
 
 # Sidebar Menu
-@@ -16,7 +21,12 @@
+
 # Dummy STEM data
 physics_data = pd.DataFrame({
     "Experiment": ["Particle Collision Analysis","Quantum Entanglement Test","Superconductivity Study","Nuclear Fusion Simulation","Gravitational Wave Detection"],
@@ -162,6 +162,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
