@@ -58,20 +58,7 @@ if menu == "Researcher Profile":
     st.write(f"**Field of Research:** {field}")
     st.write(f"**Institution:** {institution}")
     
-    if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    else:
-    image = Image.open("jay-antol-Xbf_4e7YDII-unsplash.jpg")
-
-    st.image(image, caption="Image Preview", use_container_width=True)
-
-
-    st.markdown("Welcome to the Researcher Profile section.")
-    # Load and display GitHub image
-    profile_image = load_image(image_url)
-    if profile_image:
-        st.image(profile_image, caption="Profile Image from GitHub", use_column_width=True)
-
+   
 elif menu == "Publications":
     st.title("Publications")
     st.sidebar.header("Upload and Filter")
@@ -162,6 +149,7 @@ elif menu == "Contact":
     email = "tshedzamudau941@gmail.com"
 
     st.write(f"You can reach me at {email}.")
+
 
 
 
