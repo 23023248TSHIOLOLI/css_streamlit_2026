@@ -28,7 +28,7 @@ maths_data = pd.DataFrame({
 })
 
 
-climate_data = pd.DataFrame({
+weather_data = pd.DataFrame({
     "City": ["Cape Town", "London", "New York", "Tokyo", "Sydney"],
     "Temperature (°C)": [25, 10, -3, 15, 30],
     "Humidity (%)": [65, 70, 55, 80, 50],
@@ -148,7 +148,7 @@ elif data_option == "Mathematics & Applied":
     )
 
 
-    elif data_option == "climate Data":
+    elif data_option == " Data":
         st.write("### climate Data")
         st.dataframe(climate_data)
         # Add widgets to filter by temperature and humidity
@@ -168,6 +168,7 @@ elif menu == "Contact":
     st.header("Contact Information")
     email = "tshedzamudau941@gmail.com"
     st.write(f"You can reach me at {email}.")
+
 
 
 
